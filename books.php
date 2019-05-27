@@ -172,3 +172,31 @@ echo "<tr >
 }
 echo "</table>";
 ?>
+<br>
+=======================================================================================================================================
+<br>
+<body><form name="form1" method="get" section="books.php">
+輸入書本名稱:
+<input type="text" name="name" maxlength="20" size="20"><br>
+輸入書本價格:
+<input type="text" name="no" maxlength="6" size="20"><br>
+負責員工編號:
+<input type="text" name="emp" maxlength="6" size="20"><br>
+
+<input type="submit" value='新增'>
+<input type="reset" value='重設'>
+</form>
+</body>
+</html>
+<?
+if($_GET['name'])
+{
+	$n1=$_GET['name'];
+	$n2=$_GET['no'];
+	$n3=$_GET['emp'];
+	$sql="insert into books(書籍名稱, 價格, 負責員工編號) VALUES( '$n1',$n2,$n3)";
+	$result=mysql_query($sql);
+	echo "你已經新增書籍 $n1";
+	$sql="";
+}
+?>
